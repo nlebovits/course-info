@@ -14,7 +14,7 @@
     - Monday 1PM-5PM online
     - Wednesday 10AM-1PM on campus
     - Thursday 10AM-1PM online
-    - [Book a time](https://calendly.com/mjumbe-upenn/office-hours)
+    - [Book a time on Canvas](https://canvas.upenn.edu/calendar)
   * Sofia:
     - TBD
 * **Need help?**
