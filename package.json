@@ -1,0 +1,23 @@
+{
+  "name": "course-info",
+  "version": "1.0.0",
+  "description": "**Welcome to _JavaScript Programming for Planners & Designers_!**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musa-6110-fall-2023/course-info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musa-6110-fall-2023/course-info/issues"
+  },
+  "homepage": "https://github.com/musa-6110-fall-2023/course-info#readme",
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

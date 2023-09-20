@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+
+    <style>
+      html, body { margin: 0; padding: 0; }
+      #sample-map { height: 100vh; }
+    </style>
+  </head>
+
+  <body>
+    <div id="sample-map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+
+    <script>
+      // STEP 1
+      // ------
+      // Create a Leaflet map object, and attach it to the element with id of
+      // "sample-map".
+      const map = L.map('sample-map').setView([39.99, -75.16], 11);
+
+      // STEP 2
+      // ------
+      // Create a Leaflet tile layer object that we will use as a base layer
+      // for the map. The tile layer will use Mapbox's basic satellite raster
+      // tiles.
+      const baseLayer = L.tileLayer(
+        'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.jpg90?access_token={apiKey}',
+        { apiKey: 'pk.eyJ1IjoibWp1bWJlLXRlc3QiLCJhIjoiY2w3ZTh1NTIxMTgxNTQwcGhmODU2NW5kaSJ9.pBPd19nWO-Gt-vTf1pOHBA' });
+      baseLayer.addTo(map);
+
+      // STEP 3
+      // ------
+      // Create a Leaflet GeoJSON layer that will display the data that we load
+      // from Azavea's neighborhoods dataset.
+      const dataLayer = L.geoJSON(null, {style: {color: 'red'}});
+      dataLayer.addTo(map);
+
+      // STEP 4
+      // ------
+      // Load the neighborhoods GeoJSON dataset into the data layer created
+      // above.
+      async function loadData() {
+        const response = await fetch('https://raw.githubusercontent.com/azavea/geo-data/master/Neighborhoods_Philadelphia/Neighborhoods_Philadelphia.geojson');
+        const data = await response.json();
+        dataLayer.addData(data);
+      }
+      loadData();
+    </script>
+  </body>
+</html>
